@@ -68,3 +68,22 @@ src/
 │   └── index.ts                        # Ponto de entrada para os controladores
 ```
 
+## Prints do Insomnia
+
+### POST
+![alt text](POST.png)
+
+### GET
+![alt text](GET.png)
+
+### GET-ID
+![alt text](GET-ID.png)
+
+### GET-ID-SUCESSO
+![alt text](GET-ID-SUCESSO.png)
+
+### PUT
+![alt text](PUT.png)
+
+### DELETE
+![alt text](DELETE.png)
