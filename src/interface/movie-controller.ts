@@ -3,7 +3,8 @@ import { CreateMovieUseCase } from '../application/use-cases/create-movies-use-c
 import { ListAllMoviesUseCase } from '../application/use-cases/list-all-movies-use-case';
 import { ListMovieByIdUseCase } from '../application/use-cases/list-movie-by-id-use-case';
 import { DeleteMovieUseCase } from '../application/use-cases/delete-movie-use-case';
-//import { Movie } from '../../domain/movie';
+import { UpdateMovieUseCase } from '../application/use-cases/update-movie-use-case';
+
 
 export interface CreateMovieDTO {
     title: string;
@@ -29,7 +30,8 @@ export interface CreateMovieDTO {
       private createMovieUseCase: CreateMovieUseCase,
       private listAllMoviesUseCase: ListAllMoviesUseCase,
       private listMovieByIdUseCase: ListMovieByIdUseCase,
-      private deleteMovieUseCase: DeleteMovieUseCase
+      private deleteMovieUseCase: DeleteMovieUseCase,
+      private updateMovieUseCase: UpdateMovieUseCase
     ) {}
   
 async create(req: Request, res:Response):Promise<void> {
@@ -69,4 +71,22 @@ async create(req: Request, res:Response):Promise<void> {
         res.status(200).json({ message: 'Movie deleted successfully' });
       
     }
+
+    async updateMovie(req: Request, res: Response): Promise<void> {
+      try {
+        const id = req.params.id;
+        const updatedData = req.body;
+  
+        const updatedMovie = await this.updateMovieUseCase.execute(id, updatedData);
+  
+        if (!updatedMovie) {
+          res.status(404).json({ message: 'Movie not found' });
+        } else {
+          res.status(200).json(updatedMovie);
+        }
+      } catch (error) {
+        res.status(500).json({ message: 'Error updating movie', error });
+      }
+    }
+
   }

@@ -17,9 +17,28 @@ async delete(id: string): Promise<void> {
   this.movie = this.movie.filter(movie => movie.id !== id);
 }
 
+
 findAll(): Movie[] {
 return this.movie;
 
 }
+
+async update(id: string, updateMovie: Partial<Movie>): Promise<Movie | null> {
+  const movieIndex = this.movie.findIndex(movie => movie.id === id);
+
+  if (movieIndex === -1) {
+    return null; // Filme não encontrado
+  }
+
+  // Atualiza apenas os campos fornecidos no updateMovie
+  this.movie[movieIndex] = {
+    ...this.movie[movieIndex],  // Mantém os valores antigos
+    ...updateMovie,             // Sobrescreve com os valores novos
+  };
+
+  return this.movie[movieIndex];
+}
+
+
 }
 

@@ -14,6 +14,8 @@ app.get('/movies/:id', (req, res) => movieController.getMovieById(req, res));
 
 app.delete('/movies/:id', (req, res) => movieController.deleteMovieById(req, res));
 
+app.put('/movies/:id', (req, res) => movieController.updateMovie(req, res));
+
 
 if (require.main === module) {
     const PORT = 3333;

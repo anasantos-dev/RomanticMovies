@@ -25,7 +25,7 @@ Esta aplicação foi desenvolvida para gerenciar filmes, permitindo que os usuá
 - **CreateMovieUseCase**: Responsável por criar novos registros de filmes.
 - **ListAllMoviesUseCase**: Responsável por listar todos os filmes do repositório.
 - **ListMovieByIdUseCase**: Responsável por buscar um filme específico pelo ID.
-- **UpdateMovieByIdUseCase**: Responsável por atualizar dadorde um filme específico pelo ID.
+- **UpdateMovieByIdUseCase**: Responsável por atualizar e um filme específico pelo ID.
 - **DeleteMovieUseCase**: Responsável por deletar um filme do repositório.
 
 
